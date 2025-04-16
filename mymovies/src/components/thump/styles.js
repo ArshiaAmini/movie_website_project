@@ -13,8 +13,8 @@ export const Image = styled.img`
   position: relative;
   pointer-events: auto;
 
-  :hover{
-    opacity: 0.1 ! important;
+  &:hover{
+    opacity: 0.7;
 
   }
   

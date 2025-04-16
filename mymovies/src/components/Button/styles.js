@@ -13,8 +13,7 @@ outline: none;
 font-size: var(--fontBig);
 cursor: pointer;
 
-:hover{
-  background: red;
-  transform: scale(1.05);
+&:hover{
+ opacity: 0.9;
 }
 `
