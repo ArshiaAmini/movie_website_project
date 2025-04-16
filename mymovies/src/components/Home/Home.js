@@ -13,12 +13,13 @@ import Grid from '../gird/Grid'
 import Thump from '../thump/Thump'
 import { Spinner } from '../spinar/styles'
 import Search from '../SearchBar/Search'
+import Button from '../Button/Button'
 
 // No Image
 import NoImage from '../../images/no_image.jpg'
 
 const Home = () => {
-  const { state, error, loading,setSearchTerm,searchTerm } = useHomeFetch();
+  const { state, error, loading,setSearchTerm,searchTerm, isLoadingMore, setIsLoadingMore } = useHomeFetch();
    
   return (
     <>
@@ -45,7 +46,11 @@ const Home = () => {
          )) }
        
       </Grid>
-      <Spinner/>
+      
+      {loading && <Spinner/>}
+      {state.page < state.total_pages && !loading && (
+        <Button text='Load More' callback={()=> setIsLoadingMore(true)} />
+      )}
        
     </>
   )

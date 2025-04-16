@@ -18,6 +18,7 @@ export const useHomeFetch = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
  
   const fetchMovies = async (page, searchTerm = "") => {
       
@@ -55,8 +56,20 @@ export const useHomeFetch = () => {
     fetchMovies(1, searchTerm);
 
   }, [searchTerm]); // fetchMOvies upon laoding the page for the first time.
+
+  //useEffect for loading button
+  useEffect(() => {
+
+    if (!isLoadingMore) return;
+
+    fetchMovies(state.page + 1, searchTerm) 
+    setIsLoadingMore(false)
+    
+  },[isLoadingMore, state.page, searchTerm])
+
+
   
-  return { state, error, loading, fetchMovies,setSearchTerm, searchTerm } // passes these stats and fetchfunction so we can use it whenever we need it inside any component
+  return { state, error, loading, fetchMovies,setSearchTerm, searchTerm, isLoadingMore, setIsLoadingMore } // passes these stats and fetchfunction so we can use it whenever we need it inside any component
 
 }
 
