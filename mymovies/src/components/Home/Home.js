@@ -14,13 +14,16 @@ import Thump from '../thump/Thump'
 import { Spinner } from '../spinar/styles'
 import Search from '../SearchBar/Search'
 import Button from '../Button/Button'
-
+import BreadCrumb from '../BreadCrumb/BreadCrumb'
 // No Image
 import NoImage from '../../images/no_image.jpg'
 
+
+
 const Home = () => {
-  const { state, error, loading,setSearchTerm,searchTerm, isLoadingMore, setIsLoadingMore } = useHomeFetch();
-   
+  const { state, error, loading, setSearchTerm, searchTerm, isLoadingMore, setIsLoadingMore } = useHomeFetch();
+  console.log(state)
+  
   return (
     <>
       {!searchTerm && state.results[0] ? // if the the search term exis and state.results[0] then hero part goes away
@@ -31,6 +34,7 @@ const Home = () => {
         />
         : null}
       <Search setSearchTerm={setSearchTerm} />
+     
       <Grid header = {searchTerm ? 'Search Result' : "Popular Movies"}> 
           {state.results.map(movies => (
           <Thump

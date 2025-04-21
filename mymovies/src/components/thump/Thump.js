@@ -1,12 +1,17 @@
 import React from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 // styles
 import {Image } from './styles'
 
 
-const Thump = ({image, movieId, clickable}) => (
 
-  <Image src={image} alt="movie-image" />
+const Thump = ({ image, movieId, clickable }) => (
+  <Link to={`${movieId}`}>
+    <Image src={image} alt="movie-image" />
+  </Link>
+
+
 
 )
 
