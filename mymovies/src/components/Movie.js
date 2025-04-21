@@ -9,7 +9,7 @@ import Spinner from "./spinar/Spinner"
 import BreadCrumb from './BreadCrumb/BreadCrumb'
 import MovieInfo from './MovieInfo/MovieInfo'
 import Grid from './gird/Grid'
-
+import MovieInfoBar from './MovieInfoBar/MovieInfoBar'
 
 const Movie = () => {
   const { id } = useParams()
@@ -18,12 +18,18 @@ const Movie = () => {
 
   if (error) return <p>Something went wrong...</p>
   if (isLoading) return <Spinner/>
-
+console.log('fetchMoveById----->', state)
   return (
     <>
       <BreadCrumb original_title={state.original_title} />
         <MovieInfo
         movie={state}
+      />
+      <MovieInfoBar
+        time={state.runtime}
+        budget={state.budget}
+        revenue={state.revenue}
+      
       />
       <Grid>
 
