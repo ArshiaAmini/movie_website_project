@@ -6,7 +6,10 @@ const Search = ({ setSearchTerm }) => {
   const [state, setState] = useState('');
   const ref = useRef(true);
 
-
+  useEffect(() => {
+    sessionStorage.setItem('testKey', 'testValue');
+  }, []);
+  
   useEffect(() => {
     if (ref.current) {
       ref.current = false;
@@ -22,7 +25,7 @@ const Search = ({ setSearchTerm }) => {
   return (
     <Wrapper>
       <Content>
-        <img src={searchIcon} alt='search-icon' />
+        <img src={searchIcon} alt='Search-icon' />
         <input
           type='text'
           value={state}

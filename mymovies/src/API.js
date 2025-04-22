@@ -20,7 +20,12 @@ const apiSettings = {
     const data = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${POPULAR_BASE_URL}&page=${page}`;
-    return await (await fetch(data)).json();
+    
+    return await (await fetch(data, {
+      headers: {
+        Accept: 'image/jpeg'
+      }
+    })).json();
   },
 
   
@@ -30,7 +35,14 @@ const apiSettings = {
   },
   fetchCredits: async movieId => {
     const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-    return await (await fetch(creditsEndpoint)).json();
+    return await (await fetch(creditsEndpoint,
+      {
+        headers: {
+          Accept : 'immage/jpeg'
+        }
+      }
+
+    )).json();
   },
   // Bonus material below for login
   getRequestToken: async () => {

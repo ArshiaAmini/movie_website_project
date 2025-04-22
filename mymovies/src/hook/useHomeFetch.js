@@ -53,6 +53,7 @@ export const useHomeFetch = () => {
 
   useEffect(() => {
     setState(initialState)
+    sessionStorage.setItem('movies', JSON.stringify(state));
     fetchMovies(1, searchTerm);
 
   }, [searchTerm]); // fetchMOvies upon laoding the page for the first time.
@@ -64,6 +65,7 @@ export const useHomeFetch = () => {
 
     fetchMovies(state.page + 1, searchTerm) 
     setIsLoadingMore(false)
+   
     
   },[isLoadingMore, state.page, searchTerm])
 

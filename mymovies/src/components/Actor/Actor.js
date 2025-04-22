@@ -5,7 +5,7 @@ const Actor = ({name, image,character}) => (
 
   <Wrapper >
     <Content
-    src={image}
+    src={image} alt='Actor-image'
     />
       <h3>{name}</h3>
     <p>{ character}</p>
