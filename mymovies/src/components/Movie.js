@@ -23,7 +23,7 @@ const Movie = () => {
 
   if (error) return <p>Something went wrong...</p>
   if (isLoading) return <Spinner/>
-console.log('fetchMoveById----->', state.actors)
+
   return (
     <>
       <BreadCrumb original_title={state.original_title} />
